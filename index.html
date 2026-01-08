@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymarket Credential Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Polymarket Credential Manager</h1>
+            <p class="subtitle">Manage your credentials and transfer funds securely</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Credentials Section -->
+            <section class="card">
+                <h2>Credentials</h2>
+                <div id="credentials-display" class="credentials-display">
+                    <p class="info-message">No credentials loaded. Click "Load Credentials" to begin.</p>
+                </div>
+                <div class="button-group">
+                    <button id="load-credentials-btn" class="btn btn-primary">Load Credentials</button>
+                    <button id="clear-credentials-btn" class="btn btn-secondary" disabled>Clear Credentials</button>
+                </div>
+            </section>
+
+            <!-- Fund Transfer Section -->
+            <section class="card">
+                <h2>Transfer Funds</h2>
+                <form id="transfer-form">
+                    <div class="form-group">
+                        <label for="from-address">From Address:</label>
+                        <input type="text" id="from-address" class="form-control" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="to-address">To Address:</label>
+                        <input type="text" id="to-address" class="form-control" placeholder="0x..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount">Amount (USDC):</label>
+                        <input type="number" id="amount" class="form-control" placeholder="0.00" step="0.01" min="0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gas-limit">Gas Limit (optional):</label>
+                        <input type="number" id="gas-limit" class="form-control" placeholder="21000">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block" disabled id="transfer-btn">Transfer Funds</button>
+                </form>
+                
+                <div id="transfer-status" class="transfer-status"></div>
+            </section>
+
+            <!-- Balance Check Section -->
+            <section class="card">
+                <h2>Balance Information</h2>
+                <div id="balance-display" class="balance-display">
+                    <p class="info-message">Load credentials to check balance</p>
+                </div>
+                <button id="check-balance-btn" class="btn btn-secondary" disabled>Check Balance</button>
+            </section>
+
+            <!-- Transaction History -->
+            <section class="card">
+                <h2>Transaction History</h2>
+                <div id="transaction-history" class="transaction-history">
+                    <p class="info-message">No transactions yet</p>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <div class="warning-box">
+                <strong>⚠️ Security Warning:</strong> This is a demonstration interface. Never share your credentials or use this on untrusted networks. Always verify transaction details before confirming.
+            </div>
+            <p class="footer-text">Generated at: <span id="generated-date"></span></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
